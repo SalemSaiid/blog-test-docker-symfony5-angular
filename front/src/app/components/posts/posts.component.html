@@ -1,0 +1,38 @@
+<section>
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-20 display-md-18 display-lg-16">Most recent our blog</h2>
+        </div>
+        <div class="row">
+            <div *ngFor="let post of posts" class="col-lg-4 col-md-6 mb-2-6">
+                <article class="card card-style2">
+                    <div class="card-img">
+                        <img class="rounded-top" src="https://via.placeholder.com/350x280/6A5ACD/000000" alt="...">
+                        <div class="date"><span>15</span>Sep</div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="h5"><a href="#!">{{ post.title }}</a></h3>
+                        <p class="display-30">{{ post.content | slice:0:120 }} ...</p>
+                        <a href="#!" class="read-more">read more</a>
+                    </div>
+                    <div class="card-footer">
+                        <ul>
+                            <li>
+                                <a href="#!">
+                                    <i class="fas fa-user"></i>
+                                    {{ post.createdBy }}
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#!">
+                                    <i class="far fa-comment-dots"></i>
+                                    <span>{{ post.comments?.length || '0' }} </span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
