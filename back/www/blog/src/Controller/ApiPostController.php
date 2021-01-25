@@ -25,4 +25,19 @@ class ApiPostController extends AbstractController
 
        return $response;
     }
+
+    /**
+     * @Route("/api_v1/posts/{id}", name="api_post_by_id", methods={"GET"})
+     */
+    public function getPost($id, PostRepository $postRepository, SerializerInterface $serializer)
+    {
+        $posts = $postRepository->findOneBy(['id' => $id]);
+
+        $json = $serializer->serialize($posts, 'json', ['groups' => 'post:read']);
+
+        $response = new JsonResponse($json, 200, [], true);
+
+
+        return $response;
+    }
 }
