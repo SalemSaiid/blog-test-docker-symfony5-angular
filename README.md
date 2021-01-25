@@ -9,19 +9,19 @@ These instructions apply if you installed:
 1. First, download the , either directly or by cloning the repo.
 1. Run in the root folder **docker-compose up --build --force-recreate** to prepare the environment (Angular, Apache, PHP7, Mysql, phpMyAdmin, Insert fixtures data).
 1. Now that installation is complete, you can test :)<br><br>
-    #Back:
-     - URL REST API DOC: http://localhost:8001/blog/public/index.php/api
-     - URL phpMyAdmin : http://localhost:8000 
-         <br> user: root 
-         <br> password: password     
-   #Front:  
-     - URL Blog Test with Angular: http://localhost:9898/
-     - Not Found page: http://localhost:9898/notfound-ozozo
+    #Back:<br>
+     - URL REST API DOC: http://localhost:8001/blog/public/index.php/api<br>
+     - URL phpMyAdmin : http://localhost:8000 <br>
+         <br> user: root <br>
+         <br> password: password  <br>   
+   #Front:  <br>
+     - URL Blog Test with Angular: http://localhost:9898/<br>
+     - Not Found page: http://localhost:9898/notfound-ozozo<br>
      - Tests: 
-         npm run lint
-         npm run test
-         npm run e2e
-      - Production
+         npm run lint<br>
+         npm run test<br>
+         npm run e2e<br><br>
+      - Production<br>
          npm run build    
          
      
