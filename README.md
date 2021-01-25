@@ -11,8 +11,8 @@ These instructions apply if you installed:
 1. Now that installation is complete, you can test :)<br><br>
     #Back:<br>
      - URL REST API DOC: http://localhost:8001/blog/public/index.php/api<br>
-     - URL phpMyAdmin : http://localhost:8000 <br>
-         <br> user: root <br>
+     - URL phpMyAdmin : http://localhost:8000 
+         <br> user: root 
          <br> password: password  <br>   
    #Front:  <br>
      - URL Blog Test with Angular: http://localhost:9898/<br>
