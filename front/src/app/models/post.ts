@@ -1,8 +1,10 @@
+import { Comment } from './comment';
+
 export interface Post {
-    id?: number,
-    title: number,
-    content: string,
-    createdBy: string,
-    createdAt: string,
-    comments: [],
+    id: number;
+    title: string;
+    content: string;
+    createdBy?: string;
+    createdAt: string;
+    comments: Comment[];
 }

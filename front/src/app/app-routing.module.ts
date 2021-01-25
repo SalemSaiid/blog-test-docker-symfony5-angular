@@ -1,10 +1,20 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+import { PostsComponent } from './components/posts/posts.component';
+import { PostComponent } from './components/post/post.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
+
+
+const routes: Routes = [
+    { path: '', component: PostsComponent, },
+    { path: 'posts/:postId', component: PostComponent },
+    { path: '**', component: NotFoundComponent }
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule],
+    declarations: []
 })
 export class AppRoutingModule { }

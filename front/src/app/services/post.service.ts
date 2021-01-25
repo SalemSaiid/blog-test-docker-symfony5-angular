@@ -1,6 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { Post } from "../models/post";
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+import { AppSettings } from '../../shared/appsettings';
+
+import { Post } from '../models/post';
+import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +13,20 @@ export class PostService {
 
   constructor(private http: HttpClient) {}
 
-  findAll(){
-    return this.http.get<Post[]>("http://localhost:8001/blog/public/index.php/api_v1/posts");
+  findAll(): Observable<Post[]>{
+      const headers = new HttpHeaders()
+          .set('content-type', 'application/json')
+          .set('accept', 'application/json');
+
+      return this.http.get<Post[]>(AppSettings.apibaseurl + 'api_v1/posts', { headers });
   }
+
+  findById(postId: number): Observable<Post>{
+        const headers = new HttpHeaders()
+            .set('content-type', 'application/json')
+            .set('accept', 'application/json');
+
+        return this.http.get<Post>(AppSettings.apibaseurl + 'api_v1/posts/' + postId, { headers });
+    }
 
 }

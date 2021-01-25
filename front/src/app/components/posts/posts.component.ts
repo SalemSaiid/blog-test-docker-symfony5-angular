@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PostService } from "../../services/post.service";
-import { Post } from "../../models/post";
+import { PostService } from '../../services/post.service';
+import { Post } from '../../models/post';
 
 @Component({
   selector: 'app-posts',
@@ -17,7 +17,7 @@ export class PostsComponent implements OnInit {
       this.getPosts();
   }
 
-  getPosts(){
+  getPosts(): void{
     this.postService.findAll()
         .subscribe(posts => this.posts = posts);
   }
