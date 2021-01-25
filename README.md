@@ -8,7 +8,7 @@ These instructions apply if you installed:
   
 1. First, download the , either directly or by cloning the repo.
 1. Run in the root folder **docker-compose up --build --force-recreate** to prepare the environment (Angular, Apache, PHP7, Mysql, phpMyAdmin, Insert fixtures data).
-1. Now that installation is complete, you can test :)
+1. Now that installation is complete, you can test :)<br><br>
     #Back:
      - URL REST API DOC: http://localhost:8001/blog/public/index.php/api
      - URL phpMyAdmin : http://localhost:8000 
