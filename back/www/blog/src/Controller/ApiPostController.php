@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-
 use App\Repository\PostRepository;
+use App\Service\PostService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,9 +14,9 @@ class ApiPostController extends AbstractController
     /**
      * @Route("/api_v1/posts", name="api_post_list", methods={"GET"})
      */
-    public function index(PostRepository $postRepository, SerializerInterface $serializer)
+    public function index(PostService $postService, SerializerInterface $serializer)
     {
-       $posts = $postRepository->findAll();
+       $posts = $postService->findAll();
 
        $json = $serializer->serialize($posts, 'json', ['groups' => 'post:read']);
 
