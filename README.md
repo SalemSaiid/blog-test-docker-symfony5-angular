@@ -30,3 +30,6 @@ These instructions apply if you installed:
  -  docker-compose rm    <br>
  -  docker volume prune --force  <br>
  -  docker-compose up --build --force-recreate <br>
+ <br><br><br>
+  docker container exec -it back-container blog/bin/console doctrine:schema:update --force <br><br>
+ docker container exec -it back-container sh -c "cd blog && php composer.phar install"

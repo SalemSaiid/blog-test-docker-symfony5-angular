@@ -2,17 +2,20 @@
 
 namespace App\Controller;
 
-use App\Repository\PostRepository;
+use App\Service\CommentService;
 use App\Service\PostService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 
+/**
+ * @Route("/api/posts")
+ */
 class ApiPostController extends AbstractController
 {
     /**
-     * @Route("/api_v1/posts", name="api_post_list", methods={"GET"})
+     * @Route("/", name="api_post_list", methods={"GET"})
      */
     public function index(PostService $postService, SerializerInterface $serializer)
     {
@@ -27,13 +30,13 @@ class ApiPostController extends AbstractController
     }
 
     /**
-     * @Route("/api_v1/posts/{id}", name="api_post_by_id", methods={"GET"})
+     * @Route("/{id}", name="api_post_by_id", methods={"GET"})
      */
-    public function getPost($id, PostRepository $postRepository, SerializerInterface $serializer)
+    public function getPost($id, PostService $postService, SerializerInterface $serializer)
     {
-        $posts = $postRepository->findOneBy(['id' => $id]);
+        $post = $postService->findById($id);
 
-        $json = $serializer->serialize($posts, 'json', ['groups' => 'post:read']);
+        $json = $serializer->serialize($post, 'json', ['groups' => 'post:read']);
 
         $response = new JsonResponse($json, 200, [], true);
 

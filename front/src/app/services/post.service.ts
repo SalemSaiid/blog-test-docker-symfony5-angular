@@ -18,7 +18,7 @@ export class PostService {
           .set('content-type', 'application/json')
           .set('accept', 'application/json');
 
-      return this.http.get<Post[]>(AppSettings.apibaseurl + 'api_v1/posts', { headers });
+      return this.http.get<Post[]>(AppSettings.apibaseurl + 'api/posts', { headers });
   }
 
   findById(postId: number): Observable<Post>{
@@ -26,7 +26,7 @@ export class PostService {
             .set('content-type', 'application/json')
             .set('accept', 'application/json');
 
-        return this.http.get<Post>(AppSettings.apibaseurl + 'api_v1/posts/' + postId, { headers });
+        return this.http.get<Post>(AppSettings.apibaseurl + 'api/posts/' + postId, { headers });
     }
 
 }

@@ -18,8 +18,6 @@ class ExceptionListener
             $exception->getCode()
         );
 
-        die('ddfdf');
-
         // Customize your response object to display the exception details
         $response = new Response();
         $response->setContent($message);

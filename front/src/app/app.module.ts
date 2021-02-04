@@ -12,7 +12,11 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { SortListPipe } from '../shared/Pipe/sortList.pipe';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
+import { authInterceptorProviders } from './helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,10 @@ import { SortListPipe } from '../shared/Pipe/sortList.pipe';
     CommentsComponent,
     NotFoundComponent,
     FooterComponent,
-    SortListPipe
+    SortListPipe,
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent
   ],
   exports: [
       SortListPipe
@@ -34,7 +41,7 @@ import { SortListPipe } from '../shared/Pipe/sortList.pipe';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
