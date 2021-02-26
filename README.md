@@ -25,11 +25,21 @@ These instructions apply if you installed:
          npm run build    
          
      
-<div> If you need to re-install, run these commands: <br> <br>
+ #If you need to re-install, run these commands:
  -  docker-compose stop    <br>
  -  docker-compose rm    <br>
  -  docker volume prune --force  <br>
  -  docker-compose up --build --force-recreate <br>
- <br><br><br>
-  docker container exec -it back-container blog/bin/console doctrine:schema:update --force <br><br>
- docker container exec -it back-container sh -c "cd blog && php composer.phar install"
+ <br>
+ 
+#Useful Commands 
+# Access Bash<br>
+  docker-compose exec www bash
+#run Symfony Commands (console)
+  docker container exec -it back-container blog/bin/console doctrine:schema:update --force <br>
+# run composer install<br>
+  docker container exec -it back-container sh -c "cd blog && php composer.phar install"
+# Mysql Commands
+ docker-compose exec db mysql -uroot -p"password"
+ # Check CPU consumption
+ docker stats $(docker inspect -f "{{ .Name }}" $(docker ps -q))
