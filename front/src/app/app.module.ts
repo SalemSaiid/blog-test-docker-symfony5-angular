@@ -17,6 +17,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ProfileComponent } from './components/profile/profile.component';
 
 import { authInterceptorProviders } from './helpers/auth.interceptor';
+import { AuthGuard } from "./services/guards/auth-guard.service";
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { authInterceptorProviders } from './helpers/auth.interceptor';
     HttpClientModule,
     FormsModule
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
